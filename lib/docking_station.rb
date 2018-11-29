@@ -1,10 +1,13 @@
 class DockingStation
-  def release_bike
-    Bike.new
-  end
+  attr_accessor :bike
   def dock(bike)
     @bike = bike
   end
+  def release_bike
+    raise "no bikes available" unless @bike
+    @bike
+  end
+
 end
 class Bike
   def working?
